@@ -6,6 +6,11 @@ import os
 import copy
 import pickle
 
+class Word:
+    def __init__(self, **kwargs):
+        self.word = kwargs.get("word", None)
+        self.tag = kwargs.get("tag", None)
+
 class RDRPOSTagger(SCRDRTree):
     """
     RDRPOSTagger for a particular language
@@ -22,10 +27,13 @@ class RDRPOSTagger(SCRDRTree):
             word, tag = getWordTag(wordTags[i])
             node = self.findFiredNode(fwObject)
             if node.depth > 0:
-                sen.append(word + "/" + node.conclusion)
+                sen.append(Word(word=word, tag=node.conclusion))
+                # sen.append(word + "/" + node.conclusion)
             else:# Fired at root, return initialized tag
+                sen.append(Word(word=word, tag=tag))
                 sen.append(word + "/" + tag)
-        return " ".join(sen)
+        return sen
+        # return " ".join(sen)
 
 class Tagger:
     def __init__(self, **kwargs):
