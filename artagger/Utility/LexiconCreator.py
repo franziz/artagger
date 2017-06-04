@@ -22,8 +22,8 @@ def add2WordTagFreqDict(word, tag, inDict):
 
 def createLexicon(corpusFilePath, fullLexicon):
     if fullLexicon not in ['full', 'short']:
-        print "The second parameter gets 'full' or 'short' string-value!"
-        print "No lexicon is generated!!!"
+        print("The second parameter gets 'full' or 'short' string-value!")
+        print("No lexicon is generated!!!")
         return
     #elif fullLexicon == 'full':
     #    print "Creating a full .DICT lexicon from the gold standard training corpus", corpusFilePath
@@ -32,13 +32,13 @@ def createLexicon(corpusFilePath, fullLexicon):
     
     lines = open(corpusFilePath, "r").readlines()
     wordTagCounter = {}
-    for i in xrange(len(lines)):
+    for i in range(len(lines)):
         # print i
         pairs = lines[i].strip().replace("“", "''").replace("”", "''").replace("\"", "''").split()
         for pair in pairs:
             word, tag = getWordTag(pair)
             if (len(word) >= (len(pair) - 1)) or (len(tag) >= (len(pair) - 1)):
-                print "Incorrectly formatted " + str(i+1) + "th sentence at:", pair
+                print("Incorrectly formatted " + str(i+1) + "th sentence at:", pair)
             else:
                 add2WordTagFreqDict(word, tag, wordTagCounter)
     
