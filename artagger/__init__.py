@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from .Utility.Utils import getWordTag, readDictionary
 from .InitialTagger.InitialTagger import initializeSentence
 from .SCRDRlearner.SCRDRTree import SCRDRTree
