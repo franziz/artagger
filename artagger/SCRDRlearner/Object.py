@@ -79,7 +79,7 @@ def getObjectDictionary(initializedCorpus, goldStandardCorpus):
     objects = {}
     
     j = 0
-    for i in xrange(len(initializedSens)):
+    for i in range(len(initializedSens)):
         init = initializedSens[i].strip()
         if len(init) == 0:
             continue
@@ -96,7 +96,7 @@ def getObjectDictionary(initializedCorpus, goldStandardCorpus):
         initWordTags = init.replace("“", "''").replace("”", "''").replace("\"", "''").split()
         goldWordTags = gold.replace("“", "''").replace("”", "''").replace("\"", "''").split()
         
-        for k in xrange(len(initWordTags)):
+        for k in range(len(initWordTags)):
             initWord, initTag = getWordTag(initWordTags[k])
             goldWord, correctTag = getWordTag(goldWordTags[k])
             

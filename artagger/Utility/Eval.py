@@ -17,7 +17,7 @@ def computeAccuracy(goldStandardCorpus, taggedCorpus):
         return 0
     numwords = 0
     count = 0
-    for i in xrange(len(tagged)):
+    for i in range(len(tagged)):
         numwords += 1
         word1, tag1 = getWordTag(tagged[i])
         word2, tag2 = getWordTag(goldStandard[i])  
@@ -46,7 +46,7 @@ def computeAccuracies(fullDictFile, goldStandardCorpus, taggedCorpus):
     countKN = countUNKN = 0
     countCorrectKN = countCorrectUNKN = 0
     
-    for i in xrange(len(tagged)):
+    for i in range(len(tagged)):
         numwords += 1
         word1, tag1 = getWordTag(tagged[i])
         word2, tag2 = getWordTag(goldStandard[i])   
