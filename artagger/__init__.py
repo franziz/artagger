@@ -45,8 +45,8 @@ class Tagger:
 
     def load_model(self):
         self.model.update({"th":{
-            "rdr": open(os.path.join(os.path.dirname(__file__), "Models", "POS", "Thai.RDR"), "r"),
-            "dict": open(os.path.join(os.path.dirname(__file__), "Models", "POS", "Thai.DICT"), "r")
+            "rdr": open(os.path.join(os.path.dirname(__file__), "Models", "POS", "Thai.RDR"), "r", encoding="utf8"),
+            "dict": open(os.path.join(os.path.dirname(__file__), "Models", "POS", "Thai.DICT"), "r", encoding="utf8")
         }})
 
     def tag(self, text):
