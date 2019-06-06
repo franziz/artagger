@@ -6,6 +6,7 @@ from .SCRDRlearner.Object import FWObject
 import os
 import copy
 import pickle
+import codecs
 
 class Word:
     def __init__(self, **kwargs):
@@ -45,8 +46,8 @@ class Tagger:
 
     def load_model(self):
         self.model.update({"th":{
-            "rdr": open(os.path.join(os.path.dirname(__file__), "Models", "POS", "Thai.RDR"), "r", encoding="utf8"),
-            "dict": open(os.path.join(os.path.dirname(__file__), "Models", "POS", "Thai.DICT"), "r", encoding="utf8")
+            "rdr": codecs.open(os.path.join(os.path.dirname(__file__), "Models", "POS", "Thai.RDR"), "r", encoding="utf-8-sig"),
+            "dict": codecs.open(os.path.join(os.path.dirname(__file__), "Models", "POS", "Thai.DICT"), "r", encoding="utf-8-sig")
         }})
 
     def tag(self, text):
