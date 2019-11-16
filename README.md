@@ -9,7 +9,7 @@ A Ripple Down Rules-based (RDR) Part-Of-Speech Tagger implementation based on [R
 
 ## Assumption
 
-This library assume that you are using Python 3.5 or later. Honestly, I have not tried to install this library on Python 2.7. You can try if you want to contribute.
+This library assume that you are using Python 3.5 or later.
 
 Assumption:
 
@@ -26,11 +26,6 @@ Current supported languages:
 Installation is really straight forward, just:
 ```bash
 pip install artagger
-```
-
-You may need `libthai-dev` for Thai word segmentation. On Debian and Ubuntu, try:
-```bash
-apt-get install libthai-dev
 ```
 
 # Quick Example
