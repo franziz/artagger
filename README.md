@@ -35,7 +35,7 @@ Just do a quick example if you want to use this library.
 ```python
 >> from artagger import Tagger
 >> tagger = Tagger()
->> words = tagger.tag("ผมรักคุณ")
+>> words = tagger.tag("ผม รัก คุณ")
 ```
 
 The `tag()` function will return you an array of `Word`.
