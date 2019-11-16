@@ -9,9 +9,8 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="artagger",
-    version="0.1.3",
+    version="0.1.4",
     description="A Ripple Down Rules-based (RDR) Part-Of-Speech Tagger implementation based on RDRPOSTagger.",
-    # other arguments omitted
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Frans Huang",
@@ -24,8 +23,15 @@ setup(
         "artagger.Utility",
     ],
     include_package_data=True,
-    license="MIT",  # Or Apache License 2.0 as stated in GitHub?
+    license="MIT",
     zip_safe=False,
+    keywords=[
+        "NLP",
+        "natural language processing",
+        "part-of-speech tagger",
+        "text analytics",
+        "text processing",
+    ],
     classifiers=[
         "Intended Audience :: Developers",
         "Natural Language :: Thai",
