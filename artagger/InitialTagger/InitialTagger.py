@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import re
 import copy
+import re
+
 
 def initializeSentence(FREQDICT, sentence):
     words = sentence.strip().split()
     taggedSen = []
     for word in words:
-        if word in ["“", "”", "\""]:
+        if word in ["“", "”", '"']:
             taggedSen.append("''/" + FREQDICT["''"])
             continue
-        
-        tag = ''
+
+        tag = ""
         # decodedW = word.decode("utf-8")
         # lowerW = decodedW.lower().encode("utf-8")
         decodedW = copy.copy(word)
@@ -21,7 +22,7 @@ def initializeSentence(FREQDICT, sentence):
         elif lowerW in FREQDICT:
             tag = FREQDICT[lowerW]
         else:
-            if re.search(r"[0-9]+", word) != None:
+            if re.search(r"[0-9]+", word) is not None:
                 tag = FREQDICT["TAG4UNKN-NUM"]
             else:
                 suffixL2 = suffixL3 = suffixL4 = suffixL5 = None
@@ -33,11 +34,11 @@ def initializeSentence(FREQDICT, sentence):
                     suffixL4 = ".*" + decodedW[-4:]
                 if wLength >= 6:
                     suffixL5 = ".*" + decodedW[-5:]
-                
+
                 if suffixL5 in FREQDICT:
                     tag = FREQDICT[suffixL5]
                 elif suffixL4 in FREQDICT:
-                    tag = FREQDICT[suffixL4] 
+                    tag = FREQDICT[suffixL4]
                 elif suffixL3 in FREQDICT:
                     tag = FREQDICT[suffixL3]
                 elif suffixL2 in FREQDICT:
@@ -46,10 +47,11 @@ def initializeSentence(FREQDICT, sentence):
                     tag = FREQDICT["TAG4UNKN-CAPITAL"]
                 else:
                     tag = FREQDICT["TAG4UNKN-WORD"]
-           
-        taggedSen.append(word + "/" + tag)                                
-    
+
+        taggedSen.append(word + "/" + tag)
+
     return " ".join(taggedSen)
+
 
 def initializeCorpus(FREQDICT, inputFile, outputFile):
     lines = open(inputFile, "r").readlines()
